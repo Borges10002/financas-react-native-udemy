@@ -14,6 +14,8 @@ import {Platform} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
+console.log('teste');
+
 export default function SignIn() {
   const navigation = useNavigation();
 
