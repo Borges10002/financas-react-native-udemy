@@ -1,29 +1,53 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {Platform} from 'react-native';
 
+import {AuthContext} from '../../contexts/auth';
 import {
+  AreaInput,
   Background,
   Container,
-  AreaInput,
   Input,
   SubmitButton,
   SubmitText,
 } from '../SignIn/styles';
 
 export default function SignUp() {
+  const {signUp} = useContext(AuthContext);
+
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleSignUp() {
+    signUp(email, password, nome);
+  }
+
   return (
     <Background>
       <Container behavior={Platform.OS === 'ios' ? 'padding' : ''} enabled>
         <AreaInput>
-          <Input placeholder="Nome" />
+          <Input
+            placeholder="Nome"
+            value={nome}
+            onChange={text => setNome(text)}
+          />
         </AreaInput>
 
         <AreaInput>
-          <Input placeholder="Seu email" />
+          <Input
+            placeholder="Seu email"
+            value={email}
+            onChange={text => setEmail(text)}
+          />
         </AreaInput>
 
         <AreaInput>
-          <Input placeholder="Sua senha" />
+          <Input
+            placeholder="Sua senha"
+            value={password}
+            onChange={text => setPassword(text)}
+            secureTextEntry={true}
+          />
         </AreaInput>
 
         <SubmitButton>
