@@ -1,23 +1,30 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
+import {Platform} from 'react-native';
 import {
+  AreaInput,
   Background,
   Container,
-  Logo,
-  AreaInput,
   Input,
-  SubmitButton,
-  SubmitText,
   Link,
   LinkText,
+  Logo,
+  SubmitButton,
+  SubmitText,
 } from './styles';
-import {Platform} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
-
-console.log('teste');
+import {AuthContext} from '../../contexts/auth';
 
 export default function SignIn() {
   const navigation = useNavigation();
+  const {signIn, setLoadingAuth} = useContext(AuthContext);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleLogin() {
+    signIn(email, password);
+  }
 
   return (
     <Background>
@@ -25,13 +32,21 @@ export default function SignIn() {
         <Logo source={require('../../assets/Logo.png')} />
 
         <AreaInput>
-          <Input placeholder="Seu email" />
+          <Input
+            placeholder="Seu email"
+            value={email}
+            onChangeText={text => setEmail(text)}
+          />
         </AreaInput>
         <AreaInput>
-          <Input placeholder="Seu senha" />
+          <Input
+            placeholder="Seu senha"
+            value={password}
+            onChangeText={text => setPassword(text)}
+          />
         </AreaInput>
 
-        <SubmitButton activeOpacity={0.8}>
+        <SubmitButton activeOpacity={0.8} onPress={handleLogin}>
           <SubmitText>Acessar</SubmitText>
         </SubmitButton>
 

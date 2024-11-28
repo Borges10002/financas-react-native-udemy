@@ -28,9 +28,11 @@ function AuthProvider({children}) {
     }
   }
 
+  async function signIn(email, password) {}
+
   return (
     <AuthContext.Provider
-      value={{signed: !!user, user, signUp, setLoadingAuth}}>
+      value={{signed: !!user, user, signUp, signIn, setLoadingAuth}}>
       {children}
     </AuthContext.Provider>
   );
