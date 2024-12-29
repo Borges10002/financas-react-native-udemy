@@ -116,4 +116,12 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+
+    // Configuração das fontes do react-native-vector-icons
+project.ext.vectoricons = [
+    iconFontNames: [ 'Feather.ttf' ] // Adicione os arquivos de fontes necessários
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 }
