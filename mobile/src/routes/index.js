@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import {ActivityIndicator, View} from 'react-native';
+import {View, ActivityIndicator} from 'react-native';
 
 import {AuthContext} from '../contexts/auth';
 
-import AppRoutes from './app.routes';
 import AuthRoutes from './auth.routes';
+import AppRoutes from './app.routes';
 
 function Routes() {
   const {signed, loading} = useContext(AuthContext);
@@ -18,7 +18,11 @@ function Routes() {
           alignItems: 'center',
           backgroundColor: '#F0F4FF',
         }}>
-        <ActivityIndicator size="large" color="#131313" />
+        <ActivityIndicator
+          size="large"
+          color="#131313"
+          accessibilityLabel="Carregando..."
+        />
       </View>
     );
   }

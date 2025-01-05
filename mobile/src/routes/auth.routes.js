@@ -23,8 +23,8 @@ function AuthRoutes() {
         options={{
           headerStyle: {
             backgroundColor: '#3b3dbf',
-            boderBottomWidth: 1,
-            boderBottomColor: '#00b94a',
+            borderBottomWidth: 1,
+            borderBottomColor: '#00b94a',
           },
           headerTintColor: '#FFF',
           headerTitle: 'Voltar',
