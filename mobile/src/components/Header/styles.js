@@ -20,4 +20,3 @@ export const ButtonMenu = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
-
