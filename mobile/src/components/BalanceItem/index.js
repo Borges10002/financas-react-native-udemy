@@ -1,30 +1,32 @@
-import React, {useMemo} from 'react';
-import {Container, Label, Balance} from './styles';
+import React, { useMemo } from 'react';
+import { Container, Label, Balance } from './styles';
 
-export default function BalanceItem({data}) {
+export default function BalanceItem({ data }){
+
   const labelName = useMemo(() => {
-    if (data.tag === 'saldo') {
-      return {
+    if(data.tag === 'saldo'){
+      return{
         label: 'Saldo atual',
-        color: '3b3dbf',
-      };
-    } else if (data.tag === 'receita') {
-      return {
+        color: '3b3dbf'
+      }
+    }else if(data.tag === 'receita'){
+      return{
         label: 'Entradas de hoje',
-        color: '00b94a',
-      };
-    } else {
-      return {
+        color: '00b94a'
+      } 
+    }else{
+      return{
         label: 'Saidas de hoje',
-        color: 'EF463a',
-      };
+        color: 'EF463a'
+      }
     }
-  }, [data]);
+    
+  }, [data])
 
-  return (
+  return(
     <Container bg={labelName.color}>
       <Label>{labelName.label}</Label>
       <Balance>R$ {data.saldo}</Balance>
     </Container>
-  );
+  )
 }
