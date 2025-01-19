@@ -7,7 +7,11 @@ import {
   ButtonFilter,
 } from './styles';
 
-import {CalendarList} from 'react-native-calendars';
+import {Calendar, LocaleConfig} from 'react-native-calendars';
+import {ptBR} from './localeCalendar';
+
+LocaleConfig.locales['pt-br'] = ptBR;
+LocaleConfig.defaultLocale = 'pt-br';
 
 export default function CalendarModal({setVisible, handleFilter}) {
   const [dateNow, setDateNow] = useState(new Date());
@@ -40,7 +44,7 @@ export default function CalendarModal({setVisible, handleFilter}) {
       </TouchableWithoutFeedback>
 
       <ModalContent>
-        <CalendarList
+        <Calendar
           onDayPress={handleOnDayPress}
           markedDates={markeddates}
           enableSwipeMonths={true}

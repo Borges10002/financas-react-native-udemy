@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {TouchableOpacity, Modal} from 'react-native';
+import {Modal, TouchableOpacity} from 'react-native';
 
 import Header from '../../components/Header';
-import {Background, ListBalance, Area, Title, List} from './styles';
+import {Area, Background, List, ListBalance, Title} from './styles';
 
 import {format} from 'date-fns';
 import api from '../../services/api';
@@ -10,9 +10,9 @@ import api from '../../services/api';
 import {useIsFocused} from '@react-navigation/native';
 import BalanceItem from '../../components/BalanceItem';
 import HistoricoList from '../../components/HistoricoList';
-import CalendarModal from '../../components/CalendarModal';
 
 import Icon from 'react-native-vector-icons/Feather';
+import CalendarModal from '../../components/CalendarModal';
 
 export default function Home() {
   const isFocused = useIsFocused();
@@ -98,12 +98,12 @@ export default function Home() {
         contentContainerStyle={{paddingBottom: 20}}
       />
 
-      {/* <Modal visible={modalVisible} animationType="fade" transparent={true}>
+      <Modal visible={modalVisible} animationType="fade" transparent={true}>
         <CalendarModal
           setVisible={() => setModalVisible(false)}
           handleFilter={filterDateMovements}
         />
-      </Modal> */}
+      </Modal>
     </Background>
   );
 }
