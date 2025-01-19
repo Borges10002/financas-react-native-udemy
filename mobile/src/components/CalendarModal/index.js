@@ -18,7 +18,6 @@ export default function CalendarModal({setVisible, handleFilter}) {
   const [markeddates, setMarkedDates] = useState({});
 
   function handleOnDayPress(date) {
-    //console.log(date.dateString);
     setDateNow(new Date(date.dateString));
 
     let markedDay = {};
